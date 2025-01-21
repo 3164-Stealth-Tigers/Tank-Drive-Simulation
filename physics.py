@@ -83,7 +83,7 @@ class PhysicsEngine:
         # Update the gyro simulation
         # -> FRC gyros are positive clockwise, but the returned pose is positive
         #    counter-clockwise
-        self.gyro.setAngle(-pose.rotation().degrees())
+        self.gyro.setAngle(self.gyro.getAngle() - transform.rotation().degrees())
 
         # Update the encoder velocities and positions
         self.l_encoder.setDistance(self.drivetrain.l_position * 0.3048)
